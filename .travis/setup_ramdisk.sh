@@ -33,3 +33,12 @@ time sudo cp -R $GRADLE_CACHE.ori/. $GRADLE_CACHE
 printf "${RED}give permissions to travis on GRADLE_CACHE in ramdisk${NC}\n"
 sudo chown -R travis:travis $GRADLE_CACHE
 
+rm -Rf $TRAVIS_BUILD_DIR.ori
+rm -Rf $GRADLE_CACHE.ori
+
+printf "${RED}disk size after mount${NC}\n"
+df -h
+du -sh $HOME
+du -sh $GRADLE_CACHE
+du -sh $TRAVIS_BUILD_DIR
+
