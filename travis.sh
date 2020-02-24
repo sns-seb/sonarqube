@@ -2,7 +2,7 @@
 set -euo pipefail
 
 cd $HOME
-./.travis/setup_ramdisk.sh
+$TRAVIS_BUILD_DIR/.travis/setup_ramdisk.sh
 
 cd $TRAVIS_BUILD_DIR
 
