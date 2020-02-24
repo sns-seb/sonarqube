@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+cd $HOME
 ./.travis/setup_ramdisk.sh
+
+cd $TRAVIS_BUILD_DIR
 
 #
 # Configure Maven settings and install some script utilities

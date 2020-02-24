@@ -2,7 +2,6 @@
 set -euo pipefail
 
 echo "current dir: $PWD"
-cd $HOME
 
 RED='\033[0;31m'
 NC='\033[0m' # No Color
@@ -45,5 +44,3 @@ du -sh $HOME
 du -sh $GRADLE_CACHE
 du -sh $TRAVIS_BUILD_DIR
 
-# current directory has been destroyed by move to RAMDISK
-cd "$TRAVIS_BUILD_DIR"
