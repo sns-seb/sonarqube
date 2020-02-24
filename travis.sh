@@ -40,13 +40,11 @@ BUILD)
 
   # the '-' at the end is needed when using set -u (the 'nounset' flag)
   # see https://stackoverflow.com/a/9824943/641955
-  if [[ -n "${SONAR_TOKEN-}" ]]; then
-    ./gradlew jacocoTestReport sonarqube --no-daemon --console plain \
+    ./gradlew jacocoTestReport sonarqube --no-daemon --info --console plain \
       -Dsonar.projectKey=org.sonarsource.sonarqube:sonarqube \
-      -Dsonar.organization=sonarsource \
+      -Dsonar.organization="sns-seb-github" \
       -Dsonar.host.url=https://sonarcloud.io \
-      -Dsonar.login="$SONAR_TOKEN"
-  fi
+      -Dsonar.login="b97e5ead51428ea12676e4dc21b61d0c7c4f6477"
   ;;
 
 WEB_TESTS)
