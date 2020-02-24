@@ -18,7 +18,7 @@ sudo mv $TRAVIS_BUILD_DIR $TRAVIS_BUILD_DIR.ori
 printf "${RED}create ramdisk mount point${NC}\n"
 sudo mkdir -p $TRAVIS_BUILD_DIR
 printf "${RED}create ramdisk${NC}\n"
-sudo mount -t tmpfs -o size=2048m tmps $TRAVIS_BUILD_DIR
+sudo mount -t tmpfs -o size=3072m tmps $TRAVIS_BUILD_DIR
 printf "${RED}copy TRAVIS_BUILD_DIR to ramdisk${NC}\n"
 time sudo cp -R $TRAVIS_BUILD_DIR.ori/. $TRAVIS_BUILD_DIR
 printf "${RED}give permissions to travis on its TRAVIS_BUILD_DIR in ramdisk${NC}\n"
@@ -29,7 +29,7 @@ sudo mv $GRADLE_CACHE $GRADLE_CACHE.ori
 printf "${RED}create ramdisk mount point${NC}\n"
 sudo mkdir -p $GRADLE_CACHE
 printf "${RED}create ramdisk${NC}\n"
-sudo mount -t tmpfs -o size=6144m tmps $GRADLE_CACHE
+sudo mount -t tmpfs -o size=5120m tmps $GRADLE_CACHE
 printf "${RED}copy GRADLE_CACHE to ramdisk${NC}\n"
 time sudo cp -R $GRADLE_CACHE.ori/. $GRADLE_CACHE
 printf "${RED}give permissions to travis on GRADLE_CACHE in ramdisk${NC}\n"
