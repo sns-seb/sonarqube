@@ -38,6 +38,12 @@ BUILD)
   git fetch --unshallow
   ./gradlew build --no-daemon --console plain
 
+echo "disk size after build"
+df -h
+pwd
+du -sh $HOME
+du -sh $TRAVIS_BUILD_DIR
+
   # the '-' at the end is needed when using set -u (the 'nounset' flag)
   # see https://stackoverflow.com/a/9824943/641955
     ./gradlew jacocoTestReport sonarqube --no-daemon --info --console plain \
