@@ -3,12 +3,12 @@ set -euo pipefail
 
 # current directory is $TRAVIS_BUILD_DIR
 # move out of it because it will be moved to RAM disk
-cd $HOME
+#cd $HOME
 ls -al $HOME
-$TRAVIS_BUILD_DIR/.travis/setup_ramdisk.sh
-ls -al $HOME
+#$TRAVIS_BUILD_DIR/.travis/setup_ramdisk.sh
+#ls -al $HOME
 
-cd $TRAVIS_BUILD_DIR
+#cd $TRAVIS_BUILD_DIR
 
 #
 # Configure Maven settings and install some script utilities
