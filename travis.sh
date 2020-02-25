@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+cat /proc/cpuinfo | grep 'model name' | uniq
+cat /proc/cpuinfo | grep processor
+exit
 # current directory is $TRAVIS_BUILD_DIR
 # move out of it because it will be moved to RAM disk
 #cd $HOME
