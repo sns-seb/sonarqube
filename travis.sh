@@ -54,7 +54,7 @@ du -sh $TRAVIS_BUILD_DIR
   # the '-' at the end is needed when using set -u (the 'nounset' flag)
   # see https://stackoverflow.com/a/9824943/641955
     ./gradlew jacocoTestReport sonarqube --no-daemon --info --console plain \
-      -Dsonar.projectKey=org.sonarsource.sonarqube:sonarqube \
+      -Dsonar.projectKey="sns-seb_sonarqube" \
       -Dsonar.organization="sns-seb-github" \
       -Dsonar.host.url=https://sonarcloud.io \
       -Dsonar.login="b97e5ead51428ea12676e4dc21b61d0c7c4f6477"

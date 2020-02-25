@@ -90,7 +90,6 @@ gradle.taskGraph.afterTask { Task task, TaskState state ->
 apply plugin: 'org.sonarqube'
 sonarqube {
     properties {
-        property "sonar.projectKey", "sns-seb_sonarqube"
         property 'sonar.projectName', projectTitle
         property 'sonar.projectVersion', "${versionInSources}-SNAPSHOT"
         property 'sonar.buildString', version
