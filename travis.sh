@@ -2,6 +2,7 @@
 set -euo pipefail
 
 cd $HOME
+sudo apt-get install tree
 tree
 
 exit
