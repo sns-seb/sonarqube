@@ -45,7 +45,7 @@ BUILD)
   git fetch --unshallow
   ./gradlew build --info --no-daemon --console plain
   echo "=========="
-  cat gclogs.txt
+  cat /home/travis/.gradle/daemon/5.6.1/gclogs.txt
   echo "=========="
 
 
@@ -63,7 +63,7 @@ du -sh $TRAVIS_BUILD_DIR
       -Dsonar.host.url=https://sonarcloud.io \
       -Dsonar.login="b97e5ead51428ea12676e4dc21b61d0c7c4f6477"
   echo "=========="
-  cat gclogs.txt
+  cat /home/travis/.gradle/daemon/5.6.1/gclogs.txt
   echo "=========="
   ;;
 
