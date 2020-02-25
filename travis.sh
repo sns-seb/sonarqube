@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd $HOME
-sudo apt-get install tree
-tree
+ls -al $HOME
 
 exit
 
