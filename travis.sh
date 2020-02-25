@@ -8,9 +8,6 @@ ls -al $HOME
 $TRAVIS_BUILD_DIR/.travis/setup_ramdisk.sh
 ls -al $HOME
 
-exit
-
-
 cd $TRAVIS_BUILD_DIR
 
 #
