@@ -43,7 +43,7 @@ case "$TARGET" in
 
 BUILD)
   git fetch --unshallow
-  ./gradlew build --no-daemon --console plain
+  ./gradlew build --info --no-daemon --console plain
   echo "=========="
   cat gclogs.txt
   echo "=========="
