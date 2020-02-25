@@ -43,7 +43,7 @@ case "$TARGET" in
 
 BUILD)
   git fetch --unshallow
-  ./gradlew build --no-build-cache --no-daemon --console plain
+  ./gradlew build --no-daemon --console plain
 
 echo "disk size after build"
 df -h
