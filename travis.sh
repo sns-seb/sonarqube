@@ -33,6 +33,18 @@ keep_alive() {
 }
 keep_alive &
 
+print_gc_logs() {
+  echo "=========="
+  cat /home/travis/.gradle/daemon/5.6.1/gclogs.txt
+  echo "=========="
+}
+
+print_gc_logs_daemon() {
+  sleep 3300
+  print_gc_logs
+}
+print_gc_logs_daemon &
+
 # When a pull request is open on the branch, then the job related
 # to the branch does not need to be executed and should be canceled.
 # It does not book slaves for nothing.
@@ -44,10 +56,7 @@ case "$TARGET" in
 BUILD)
   git fetch --unshallow
   ./gradlew build --info --no-daemon --console plain
-  echo "=========="
-  cat /home/travis/.gradle/daemon/5.6.1/gclogs.txt
-  echo "=========="
-
+  print_gc_logs
 
 echo "disk size after build"
 df -h
@@ -62,9 +71,7 @@ du -sh $TRAVIS_BUILD_DIR
       -Dsonar.organization="sns-seb-github" \
       -Dsonar.host.url=https://sonarcloud.io \
       -Dsonar.login="b97e5ead51428ea12676e4dc21b61d0c7c4f6477"
-  echo "=========="
-  cat /home/travis/.gradle/daemon/5.6.1/gclogs.txt
-  echo "=========="
+  print_gc_logs
   ;;
 
 WEB_TESTS)
