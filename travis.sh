@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# current directory is $TRAVIS_BUILD_DIR
+# move out of it because it will be moved to RAM disk
+cd $HOME
+ls -al $HOME
+$TRAVIS_BUILD_DIR/.travis/setup_ramdisk.sh
 ls -al $HOME
 
 exit
 
-$TRAVIS_BUILD_DIR/.travis/setup_ramdisk.sh
 
 cd $TRAVIS_BUILD_DIR
 
