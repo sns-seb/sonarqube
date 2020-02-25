@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cat /proc/cpuinfo | grep 'model name' | uniq
-cat /proc/cpuinfo | grep processor
-exit
 # current directory is $TRAVIS_BUILD_DIR
 # move out of it because it will be moved to RAM disk
 #cd $HOME
@@ -47,6 +44,10 @@ case "$TARGET" in
 BUILD)
   git fetch --unshallow
   ./gradlew build --no-daemon --console plain
+  echo "=========="
+  cat gclogs.txt
+  echo "=========="
+
 
 echo "disk size after build"
 df -h
@@ -61,6 +62,9 @@ du -sh $TRAVIS_BUILD_DIR
       -Dsonar.organization="sns-seb-github" \
       -Dsonar.host.url=https://sonarcloud.io \
       -Dsonar.login="b97e5ead51428ea12676e4dc21b61d0c7c4f6477"
+  echo "=========="
+  cat gclogs.txt
+  echo "=========="
   ;;
 
 WEB_TESTS)
