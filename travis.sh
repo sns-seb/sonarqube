@@ -33,18 +33,6 @@ keep_alive() {
 }
 keep_alive &
 
-print_gc_logs() {
-  echo "=========="
-  cat /home/travis/.gradle/daemon/5.6.1/gclogs.txt
-  echo "=========="
-}
-
-print_gc_logs_daemon() {
-  sleep 2400
-  print_gc_logs
-}
-print_gc_logs_daemon &
-
 # When a pull request is open on the branch, then the job related
 # to the branch does not need to be executed and should be canceled.
 # It does not book slaves for nothing.
@@ -54,7 +42,6 @@ cancel_branch_build_with_pr || if [[ $? -eq 1 ]]; then exit 0; fi
 build() {
   git fetch --unshallow
   ./gradlew build --info --no-daemon --console plain
-  print_gc_logs
 }
 
 analyse() {
@@ -65,7 +52,6 @@ analyse() {
       -Dsonar.organization="sns-seb-github" \
       -Dsonar.host.url=https://sonarcloud.io \
       -Dsonar.login="b97e5ead51428ea12676e4dc21b61d0c7c4f6477"
-  print_gc_logs
 }
 
 case "$TARGET" in
