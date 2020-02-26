@@ -41,7 +41,7 @@ cancel_branch_build_with_pr || if [[ $? -eq 1 ]]; then exit 0; fi
 
 build() {
   git fetch --unshallow
-  ./gradlew build --info --no-daemon --console plain
+  ./gradlew build --no-daemon --console plain
 }
 
 analyse() {
