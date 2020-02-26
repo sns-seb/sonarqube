@@ -2,7 +2,6 @@ language: java
 sudo: required
 install: true
 jdk: openjdk11
-script: ./travis.sh
 dist: trusty
 
 branches:
@@ -10,9 +9,18 @@ branches:
   - /^dogfood\/.*$/
   - public_master
 
-env:
-  - TARGET=BUILD
-#  - TARGET=WEB_TESTS
+
+jobs:
+  include:
+    - stage: "build"
+      env:
+        - TARGET=BUILD
+        - TARGET=WEB_TESTS
+      script: ./travis.sh
+   - stage: "analyse"
+      env:
+        - TARGET=ANALYSIS
+      script: ./travis.sh
 
 matrix:
   fast_finish: true

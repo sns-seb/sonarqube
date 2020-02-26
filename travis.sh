@@ -51,19 +51,13 @@ print_gc_logs_daemon &
 # @TravisCI please provide the feature natively, like at AppVeyor or CircleCI ;-)
 cancel_branch_build_with_pr || if [[ $? -eq 1 ]]; then exit 0; fi
 
-case "$TARGET" in
-
-BUILD)
+build() {
   git fetch --unshallow
   ./gradlew build --info --no-daemon --console plain
   print_gc_logs
+}
 
-echo "disk size after build"
-df -h
-pwd
-du -sh $HOME
-du -sh $TRAVIS_BUILD_DIR
-
+analyse() {
   # the '-' at the end is needed when using set -u (the 'nounset' flag)
   # see https://stackoverflow.com/a/9824943/641955
     ./gradlew jacocoTestReport sonarqube --no-daemon --info --console plain \
@@ -72,6 +66,17 @@ du -sh $TRAVIS_BUILD_DIR
       -Dsonar.host.url=https://sonarcloud.io \
       -Dsonar.login="b97e5ead51428ea12676e4dc21b61d0c7c4f6477"
   print_gc_logs
+}
+
+case "$TARGET" in
+
+BUILD)
+  build
+  ;;
+
+ANALYSE)
+  build
+  analyse
   ;;
 
 WEB_TESTS)
