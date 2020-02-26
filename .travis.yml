@@ -9,7 +9,6 @@ branches:
   - /^dogfood\/.*$/
   - public_master
 
-
 jobs:
   include:
     - stage: "build"
@@ -17,7 +16,7 @@ jobs:
         - TARGET=BUILD
         - TARGET=WEB_TESTS
       script: ./travis.sh
-   - stage: "analyse"
+    - stage: "analyse"
       env:
         - TARGET=ANALYSIS
       script: ./travis.sh
