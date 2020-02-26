@@ -40,7 +40,7 @@ print_gc_logs() {
 }
 
 print_gc_logs_daemon() {
-  sleep 3300
+  sleep 2400
   print_gc_logs
 }
 print_gc_logs_daemon &
