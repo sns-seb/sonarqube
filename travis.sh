@@ -60,7 +60,7 @@ BUILD)
   build
   ;;
 
-ANALYSE)
+ANALYSIS)
   build
   analyse
   ;;
